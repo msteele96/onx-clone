@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Map from './components/Map'
-import CreatePin from './components/CreatePin';
+import PinContainer from './containers/PinContainer'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Route exact path="/" component={Map}/>
       </Router>
-      <CreatePin />
+      <PinContainer />
     </div>
   );
 }

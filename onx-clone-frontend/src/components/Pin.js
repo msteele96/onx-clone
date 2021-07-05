@@ -1,14 +1,5 @@
-import { Component } from "react";
-
-export default class Pin extends Component {
-    constructor(props) {
-        super()
-        // this.state = {}
-    }
-
-    render() {
-        return (
-            <p>Pin</p>
-        )
-    }
+export default function Pin(props) {
+    return <div>
+        Use props and make this meaningful, add links to make the pin active in the map?
+    </div>
 }
