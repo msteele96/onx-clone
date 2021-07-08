@@ -5,12 +5,12 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk'
-import usersReducer from './reducers/usersReducer';
+import rootReducer from './reducers/rootReducer';
 
 
-const store = createStore(usersReducer, applyMiddleware(thunk))
+// const store = createStore(rootReducer, applyMiddleware(thunk))
 
-// const store = createStore(usersReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // for use with devtools but no thunk
 
 ReactDOM.render(

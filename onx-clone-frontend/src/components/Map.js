@@ -31,6 +31,20 @@ export default class Map extends React.Component {
     this.map = null;
   }
 
+  handleMapViewChange = (ev) => {
+    const {
+      onMapViewChange
+    } = this.props;
+    if (ev.newValue && ev.newValue.lookAt) {
+      const lookAt = ev.newValue.lookAt;
+      // adjust precision
+      const lat = Math.trunc(lookAt.position.lat * 1E7) / 1E7;
+      const lng = Math.trunc(lookAt.position.lng * 1E7) / 1E7;
+      const zoom = Math.trunc(lookAt.zoom * 1E2) / 1E2;
+      onMapViewChange(zoom, lat, lng);
+    }
+  }
+
   componentDidMount() {
     if (!this.map) {
       // instantiate a platform, default layers and a map as usual
@@ -47,6 +61,12 @@ export default class Map extends React.Component {
           zoom: 2,
         },
       );
+      
+        // attach the listener
+        map.addEventListener('mapviewchange', this.handleMapViewChange);
+        // add the interactive behaviour to the map
+        new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
       onResize(this.ref.current, () => {
         map.getViewPort().resize();
       });
@@ -54,10 +74,34 @@ export default class Map extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    const {
+      lat,
+      lng,
+      zoom
+    } = this.props;
+
+    if (this.map) {
+      // prevent the unnecessary map updates by debouncing the
+      // setZoom and setCenter calls
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.map.setZoom(zoom);
+        this.map.setCenter({lat, lng});
+      }, 100);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.map) {
+      this.map.removeEventListener('mapviewchange', this.handleMapViewChange);
+    }
+  }
+
   render() {
     return (
       <div
-        style={{ position: 'relative', width: '100%', height:'300px' }}
+        style={{ position: 'relative' ,width: '60%', height:'600px' }}
         ref={this.ref}
       />
     )
