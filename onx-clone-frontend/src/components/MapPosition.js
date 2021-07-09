@@ -13,11 +13,11 @@ export default class MapPosition extends React.Component {
     const {
       lat,
       lng,
-      zoom
+    //   zoom
     } = this.props;
     return (
       <>
-        <div>
+        {/* <div>
           Zoom:
           <input
             onChange={this.handleOnChange}
@@ -25,7 +25,7 @@ export default class MapPosition extends React.Component {
             type="number"
             value={zoom}
           />
-        </div>
+        </div> */}
         <div>
           Latitude:
           <input
