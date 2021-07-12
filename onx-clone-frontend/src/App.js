@@ -21,6 +21,7 @@ function App() {
       <MapContainer />
       {/* <SignupForm /> */}
       {/* <LoginForm /> */}
+      <br/>
       <PinContainer />
     </div>
   );

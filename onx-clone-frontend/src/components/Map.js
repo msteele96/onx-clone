@@ -47,9 +47,7 @@ export default class Map extends React.Component {
         },
       );
 
-    //   var ui = H.ui.UI.createDefault(map, layers);
-    //   used for adding UI zoom and layer controls
-    debugger
+    H.ui.UI.createDefault(map, layers);
       
         // attach the listener
         map.addEventListener('mapviewchange', this.handleMapViewChange);
