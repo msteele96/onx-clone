@@ -42,10 +42,14 @@ export default class Map extends React.Component {
         // layers.raster.terrain.map,
         {
           pixelRatio: window.devicePixelRatio,
-          center: {lat: 0, lng: 0},
-          zoom: 2,
+          center: {lat: 39.3940676, lng: -98.2670228},
+          zoom: 4.5,
         },
       );
+
+    //   var ui = H.ui.UI.createDefault(map, layers);
+    //   used for adding UI zoom and layer controls
+    debugger
       
         // attach the listener
         map.addEventListener('mapviewchange', this.handleMapViewChange);
@@ -86,7 +90,7 @@ export default class Map extends React.Component {
   render() {
     return (
       <div
-        style={{ position: 'relative' ,width: '60%', height:'600px' }}
+        style={{ position: 'relative', width: '60%', height:'600px', margin:'auto' }}
         ref={this.ref}
       />
     )

@@ -17,7 +17,7 @@ export default class PinContainer extends Component {
         return (
             <div>
                 <CreatePin />
-                {this.renderPins}
+                {/* {this.renderPins()} */}
             </div>
         )
     }
