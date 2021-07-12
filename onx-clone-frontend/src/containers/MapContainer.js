@@ -34,7 +34,7 @@ export default class MapContainer extends React.Component {
       lng
     } = this.state;
     return (
-      <div className="MapContainer" style={{alignItems: 'center'}}>
+      <div className="MapContainer">
         <Map
           lat={lat}
           lng={lng}

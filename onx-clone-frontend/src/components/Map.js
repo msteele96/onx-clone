@@ -37,9 +37,7 @@ export default class Map extends React.Component {
       const layers = platform.createDefaultLayers();
       const map = new H.Map(
         this.ref.current,
-        // layers.raster.normal.map,
         layers.raster.satellite.map,
-        // layers.raster.terrain.map,
         {
           pixelRatio: window.devicePixelRatio,
           center: {lat: 39.3940676, lng: -98.2670228},
@@ -47,18 +45,26 @@ export default class Map extends React.Component {
         },
       );
 
-    H.ui.UI.createDefault(map, layers);
+      this.map = map;
+
+        H.ui.UI.createDefault(map, layers);
       
         // attach the listener
         map.addEventListener('mapviewchange', this.handleMapViewChange);
         // add the interactive behaviour to the map
         new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
+        this.addMarkers()
+
       onResize(this.ref.current, () => {
         map.getViewPort().resize();
       });
-      this.map = map;
     }
+  }
+
+  addMarkers = () => {
+    var smokiesMarker = new H.map.Marker({lat:35.637, lng: -83.597});
+    this.map.addObject(smokiesMarker);
   }
 
   componentDidUpdate() {
