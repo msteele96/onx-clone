@@ -20,6 +20,7 @@ export default class SignupForm extends Component {
     handleSubmit = event => {
         event.preventDefault()
         console.log(this.state)
+        // this.props.createUser()
         this.setState(
             {
                 username: "",

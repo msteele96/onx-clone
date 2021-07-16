@@ -5,26 +5,63 @@ import PinContainer from './containers/PinContainer'
 import MapContainer from './containers/MapContainer'
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm'
+import { Component } from 'react';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <h1> OnX Clone</h1>
-      <Router>
-        <Route exact path="/">
-          <ul style={{listStyle:'none'}}>
-            <li><Link to="/login"><h3>Log In</h3></Link></li>
-            <li><Link to="/signup"><h3>Sign Up</h3></Link></li>
-          </ul>
-        </Route>
-        <Route exact path="/login" component={LoginForm}/>
-        <Route exact path="/signup" component={SignupForm}/>
-        <Route path="/users" component={MapContainer}/>
-        <Route path="/users" component={PinContainer}/>
-      </Router>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    return (
+      <div className="App">
+        <h1> OnX Clone</h1>
+        <Router>
+          <Route exact path="/">
+            <ul style={{listStyle:'none'}}>
+              <li><Link to="/login"><h3>Log In</h3></Link></li>
+              <li><Link to="/signup"><h3>Sign Up</h3></Link></li>
+            </ul>
+          </Route>
+          <Route exact path="/login" component={LoginForm}/>
+          <Route exact path="/signup" component={SignupForm}/>
+          <Route path="/users" component={MapContainer}/>
+          <Route path="/users" component={PinContainer}/>
+        </Router>
+      </div>
+    );  
+  }
 }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1> OnX Clone</h1>
+//       <Router>
+//         <Route exact path="/">
+//           <ul style={{listStyle:'none'}}>
+//             <li><Link to="/login"><h3>Log In</h3></Link></li>
+//             <li><Link to="/signup"><h3>Sign Up</h3></Link></li>
+//           </ul>
+//         </Route>
+//         <Route exact path="/login" component={LoginForm}/>
+//         <Route exact path="/signup" component={SignupForm}/>
+//         <Route path="/users" component={MapContainer}/>
+//         <Route path="/users" component={PinContainer}/>
+//       </Router>
+//     </div>
+//   );
+// }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    pins: state.pins
+  }
+}
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchCats: () => dispatch(fetchCats())
+//   }
+// }
+
+export default connect(mapStateToProps)(App);

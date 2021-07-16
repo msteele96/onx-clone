@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 
-import usersReducer from './usersReducer'
+import userReducer from './userReducer'
 import pinsReducer from './pinsReducer'
 
 // Use ES6 object literal shorthand syntax to define the object shape
 const rootReducer = combineReducers({
-  usersReducer,
-  pinsReducer,
+  user: userReducer,
+  pins: pinsReducer
 })
 
 export default rootReducer
