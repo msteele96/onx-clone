@@ -7,6 +7,7 @@ const userReducer = (state = { user: "", loading: false }, action) => {
           loading: true
         }
       case 'SET_USER':
+        debugger
         return {
           ...state,
           user: action.user,
