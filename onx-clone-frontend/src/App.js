@@ -14,7 +14,7 @@ class App extends Component {
 
   componentDidUpdate() {
     let id = this.props.user.user.data.id
-    window.history.pushState( "state", "new route", `users/${id}`)
+    window.history.pushState( "", "", `/users/${id}`)
     // this.forceUpdate()
     // needs to be adjsuted to cause a component update
   }
@@ -33,7 +33,7 @@ class App extends Component {
           </Route>
 
           <Route exact path="/login">
-            <LoginForm {...this.props} setUser={this.props.setUser}/>
+            <LoginForm user={this.props.user} setUser={this.props.setUser}/>
           </Route>
 
           <Route exact path="/signup">

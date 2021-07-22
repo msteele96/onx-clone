@@ -1,6 +1,7 @@
 import { Component } from "react";
+import { withRouter } from "react-router";
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -25,6 +26,8 @@ export default class LoginForm extends Component {
                 password: "",
             }
         )
+        this.props.history.push(`users`);
+
     }
 
     render() {
@@ -42,3 +45,5 @@ export default class LoginForm extends Component {
         )
     }
 }
+
+export default withRouter(LoginForm)
