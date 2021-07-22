@@ -1,4 +1,4 @@
-const userReducer = (state = { user: "", loading: false }, action) => {
+const userReducer = (state = { user: {data: {id: 0}}, loading: false }, action) => {
     switch(action.type) {
       case 'LOADING_USERS':
         return {
@@ -7,9 +7,7 @@ const userReducer = (state = { user: "", loading: false }, action) => {
           loading: true
         }
       case 'SET_USER':
-        debugger
         return {
-          ...state,
           user: action.user,
           loading: false
         }

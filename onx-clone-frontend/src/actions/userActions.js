@@ -1,11 +1,4 @@
-// export const setUser = user => {
-//     return {
-//       type: 'SET_USER',
-//       user: Object.assign({}, user)
-//     }
-//   }
-
-    export const setUser = (userInfo) => {
+export const setUser = (userInfo) => {
     return (dispatch) => {
         const configObj = {
             method: "POST",
@@ -23,4 +16,4 @@
         dispatch({ type: 'SET_USER', user: responseJSON })
       })
     }
-  }
+}
