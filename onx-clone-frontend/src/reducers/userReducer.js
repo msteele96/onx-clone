@@ -1,9 +1,8 @@
 const userReducer = (state = { user: {data: {id: 0}}, loading: false }, action) => {
     switch(action.type) {
-      case 'LOADING_USERS':
+      case 'LOADING_USER':
         return {
           ...state,
-          user: [...state.user],
           loading: true
         }
       case 'SET_USER':

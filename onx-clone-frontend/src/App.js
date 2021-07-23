@@ -14,9 +14,9 @@ class App extends Component {
 
   componentDidUpdate() {
     let id = this.props.user.user.data.id
-    window.history.pushState( "", "", `/users/${id}`)
-    // this.forceUpdate()
-    // needs to be adjsuted to cause a component update
+    if (id !== "null") {
+      window.history.pushState( "", "", `/users/${id}`)
+    }
   }
 
   render() {
@@ -37,7 +37,7 @@ class App extends Component {
           </Route>
 
           <Route exact path="/signup">
-            <SignupForm setUser={this.setUser}/>
+            <SignupForm user={this.props.user} setUser={this.props.setUser}/>
           </Route>
           {/* create on backend */}
           <Route path="/users">
@@ -48,6 +48,7 @@ class App extends Component {
             <PinContainer user={this.props.user}/>
           </Route>
           {/* needs to load the users pins and display them on map */}
+          <Route exact path="/failure" render={() => <><h2>Problem logging you in, try again.</h2> <Link to="/login"><h3>Log In</h3></Link> </>}/>
         </>
         </Router>
       </div>

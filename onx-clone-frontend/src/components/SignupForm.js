@@ -1,6 +1,7 @@
 import { Component } from "react";
+import { withRouter } from "react-router";
 
-export default class SignupForm extends Component {
+class SignupForm extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -19,8 +20,7 @@ export default class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log(this.state)
-        // this.props.createUser()
+        this.props.setUser(this.state)
         this.setState(
             {
                 username: "",
@@ -28,6 +28,7 @@ export default class SignupForm extends Component {
                 confirm_password: ""
             }
         )
+        this.props.history.push(`users`);
     }
 
     render() {
@@ -47,3 +48,5 @@ export default class SignupForm extends Component {
         )
     }
 }
+
+export default withRouter(SignupForm)

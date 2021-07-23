@@ -9,6 +9,7 @@ export const setUser = (userInfo) => {
             body: JSON.stringify(userInfo)
         }
 
+      dispatch({type: 'LOADING_USER'})
       fetch('http://localhost:3001/users', configObj)
       .then(response => {
         return response.json()
