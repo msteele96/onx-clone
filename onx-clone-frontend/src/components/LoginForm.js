@@ -26,7 +26,7 @@ class LoginForm extends Component {
                 password: "",
             }
         )
-        this.props.history.push(`users`);
+        this.props.history.push(`users/`);
     }
 
     render() {

@@ -15,6 +15,9 @@ export const setUser = (userInfo) => {
         return response.json()
       }).then(responseJSON => {
         dispatch({ type: 'SET_USER', user: responseJSON })
+      }).catch(() => {
+        window.history.pushState("", "", "/failure")
+        window.history.go()
       })
     }
 }

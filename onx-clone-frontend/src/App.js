@@ -20,6 +20,8 @@ class App extends Component {
   }
 
   render() {
+    let key = this.props.user.user.data.id
+    // debugger
     return (
       <div className="App">
         <h1> OnX Clone</h1>
@@ -39,13 +41,13 @@ class App extends Component {
           <Route exact path="/signup">
             <SignupForm user={this.props.user} setUser={this.props.setUser}/>
           </Route>
-          {/* create on backend */}
+
           <Route path="/users">
-            <MapContainer key={this.props.user.user.data.id} user={this.props.user}/>
+            <MapContainer key={key} user={this.props.user}/>
           </Route>
-          {/* needs to get a user and put that user in the address bar, then load their pins on the map */}
+
           <Route path="/users">
-            <PinContainer user={this.props.user}/>
+            <PinContainer key={key} user={this.props.user}/>
           </Route>
           {/* needs to load the users pins and display them on map */}
           <Route exact path="/failure" render={() => <><h2>Problem logging you in, try again.</h2> <Link to="/login"><h3>Log In</h3></Link> </>}/>
