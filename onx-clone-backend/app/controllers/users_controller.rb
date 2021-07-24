@@ -17,8 +17,6 @@ class UsersController < ApplicationController
             render json: UserSerializer.new(new_user)
         elsif user.authenticate(params[:password])
             render json: UserSerializer.new(user)
-        # else
-        #     render json: {"data":{"id":"null"}}
         end
     end
 end

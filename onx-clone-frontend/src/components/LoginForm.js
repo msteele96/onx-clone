@@ -10,6 +10,12 @@ class LoginForm extends Component {
         }
     }
 
+    async handleRedirect() {
+        const set = await this.props.setUser(this.state)
+        debugger
+        this.props.history.push(`users/${set}`)
+    }
+
     handleChange = (event) => {
         this.setState({
             ...this.state,
@@ -19,14 +25,16 @@ class LoginForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.setUser(this.state)
+        // this.handleRedirect()
+        // Promise.allSettled()
+        const set = new Promise(this.props.setUser(this.state), "")
+        set.then(this.props.history.push(`/users/${set}`))
         this.setState(
             {
                 username: "",
                 password: "",
             }
         )
-        this.props.history.push(`users/`);
     }
 
     render() {

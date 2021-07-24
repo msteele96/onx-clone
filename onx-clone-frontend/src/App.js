@@ -9,19 +9,19 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { setUser } from './actions/userActions';
 import { addPin } from './actions/pinsActions';
+import { loadUsersPins } from './actions/pinsActions';
 
 class App extends Component {
 
-  componentDidUpdate() {
-    let id = this.props.user.user.data.id
-    if (id !== "null") {
-      window.history.pushState( "", "", `/users/${id}`)
-    }
-  }
+  // componentDidUpdate() {
+  //   let id = this.props.user.user.data.id
+  //   if (id !== "null") {
+  //     window.history.pushState( "", "", `/users/${id}`)
+  //   }
+  // }
 
   render() {
     let key = this.props.user.user.data.id
-    // debugger
     return (
       <div className="App">
         <h1> OnX Clone</h1>
@@ -47,7 +47,7 @@ class App extends Component {
           </Route>
 
           <Route path="/users">
-            <PinContainer key={key} user={this.props.user}/>
+            <PinContainer key={key} user={this.props.user.user} pins={this.props.pins} addPin={this.props.addPin} loadUsersPins={this.props.loadUsersPins}/>
           </Route>
           {/* needs to load the users pins and display them on map */}
           <Route exact path="/failure" render={() => <><h2>Problem logging you in, try again.</h2> <Link to="/login"><h3>Log In</h3></Link> </>}/>
@@ -65,4 +65,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {setUser, addPin})(App);
+export default connect(mapStateToProps, {setUser, addPin, loadUsersPins})(App);

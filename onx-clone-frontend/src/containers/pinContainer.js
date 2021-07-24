@@ -8,6 +8,11 @@ export default class PinContainer extends Component {
         // this.state = {}
     }
 
+    componentDidMount() {
+        debugger
+        this.props.loadUsersPins(this.props.user.data.id)
+    }
+
     renderPins = () => {
         this.props.pins.map(pin => Pin(pin))
         // return a bunch of pins
@@ -17,12 +22,12 @@ export default class PinContainer extends Component {
         return (
             <div>
                 <CreatePin />
-                {/* {this.renderPins()} */}
+                <h2>Pins</h2>
+                <table>
+                    {/* {this.renderPins()} */}
+                </table>
             </div>
         )
     }
 }
 
-// mapStateToProps = () => {
-// need this to give me pins to fill the container
-// }
