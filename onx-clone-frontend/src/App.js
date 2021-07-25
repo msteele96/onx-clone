@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import PinContainer from './containers/PinContainer'
 import MapContainer from './containers/MapContainer'
 import SignupForm from './components/SignupForm';
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1> OnX Clone</h1>
-        <Router>
+        <Switch>
           <>
           <Route exact path="/">
             <ul style={{listStyle:'none'}}>
@@ -35,17 +35,17 @@ class App extends Component {
             <SignupForm user={this.props.user} setUser={this.props.setUser}/>
           </Route>
 
-          <Route path="/users">
-            <MapContainer key={key} user={this.props.user}/>
+          <Route path="/dashboard">
+            <MapContainer key={key} user={this.props.user.user} pins={this.props.pins.pins}/>
           </Route>
 
-          <Route path="/users">
-            <PinContainer key={key} user={this.props.user.user} pins={this.props.pins} addPin={this.props.addPin} loadUsersPins={this.props.loadUsersPins}/>
+          <Route path="/dashboard">
+            <PinContainer key={key} user={this.props.user.user} pins={this.props.pins.pins} addPin={this.props.addPin} loadUsersPins={this.props.loadUsersPins}/>
           </Route>
           {/* needs to load the users pins and display them on map */}
           <Route exact path="/failure" render={() => <><h2>Problem logging you in, try again.</h2> <Link to="/login"><h3>Log In</h3></Link> </>}/>
         </>
-        </Router>
+        </Switch>
       </div>
     );  
   }

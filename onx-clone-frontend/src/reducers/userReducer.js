@@ -7,6 +7,7 @@ const userReducer = (state = { user: {data: {id: 0}}, loading: false }, action) 
         }
       case 'SET_USER':
         return {
+          ...state,
           user: action.user,
           loading: false
         }

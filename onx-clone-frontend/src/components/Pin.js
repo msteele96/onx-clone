@@ -1,5 +1,5 @@
 export default function Pin(props) {
     return <tr>
-        Type: Name: Latitude: Longitude: Notes: 
+        Type: {props.type} Name: {props.name} Latitude: {props.latitude} Longitude: {props.longitude} Notes: {props.notes}
     </tr>
 }
