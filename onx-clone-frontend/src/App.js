@@ -13,13 +13,6 @@ import { loadUsersPins } from './actions/pinsActions';
 
 class App extends Component {
 
-  // componentDidUpdate() {
-  //   let id = this.props.user.user.data.id
-  //   if (id !== "null") {
-  //     window.history.pushState( "", "", `/users/${id}`)
-  //   }
-  // }
-
   render() {
     let key = this.props.user.user.data.id
     return (
