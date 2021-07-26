@@ -10,11 +10,6 @@ class LoginForm extends Component {
         }
     }
 
-    async handleRedirect() {
-        this.props.setUser(this.state)
-        this.props.history.push(`/dashboard`)
-    }
-
     handleChange = (event) => {
         this.setState({
             ...this.state,
@@ -24,15 +19,8 @@ class LoginForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.handleRedirect()
-
-        // this.props.setUser(this.state)
-        // console.log(this.props.user.user.data.id)
-        // while (this.props.user.user.data.id !== 0) {
-        //     this.props.history.push(`/users/${this.props.user.user.data.id}`)
-        // }
-
-        // setTimeout(this.props.history.push(`/users/${this.props.user.user.data.id}`), 2000)
+        this.props.setUser(this.state)
+        this.props.history.push(`/dashboard`)
         this.setState(
             {
                 username: "",
