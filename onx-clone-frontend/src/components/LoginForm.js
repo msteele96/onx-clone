@@ -19,8 +19,7 @@ class LoginForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.setUser(this.state)
-        this.props.history.push(`/dashboard`)
+        this.props.setUser(this.state, this.props.history)
         this.setState(
             {
                 username: "",
