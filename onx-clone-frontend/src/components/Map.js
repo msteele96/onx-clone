@@ -63,8 +63,12 @@ export default class Map extends React.Component {
   }
 
   addMarkers = () => {
-    var smokiesMarker = new H.map.Marker({lat:35.637, lng: -83.597});
-    this.map.addObject(smokiesMarker);
+    const pins = this.props.pins.map(pin => new H.map.Marker({lat: parseFloat(pin.latitude), lng: parseFloat(pin.longitude)}))
+    this.map.addObjects(pins)
+
+    // var smokiesMarker = new H.map.Marker({lat:35.637, lng: -83.597});
+    // this.map.addObject(smokiesMarker);
+    // keeping smokiesMarker for reference on creating new pin
   }
 
   componentDidUpdate() {

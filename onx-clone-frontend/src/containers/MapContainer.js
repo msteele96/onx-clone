@@ -40,6 +40,8 @@ export default class MapContainer extends React.Component {
           lng={lng}
           onMapViewChange={this.handleMapViewChange}
           zoom={zoom}
+          user={this.props.user}
+          pins={this.props.pins}
         />
         <MapPosition
           lat={lat}

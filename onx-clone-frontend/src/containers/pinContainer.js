@@ -12,7 +12,6 @@ export default class PinContainer extends Component {
 
     renderPins = () => {
         return this.props.pins.map(pin => Pin(pin))
-        // return a bunch of pins
     }
 
     render() {
@@ -20,7 +19,9 @@ export default class PinContainer extends Component {
             <div>
                 <CreatePin />
                 <h2>Pins</h2>
-                {this.renderPins()}
+                <ul>
+                    {this.renderPins()}
+                </ul>
             </div>
         )
     }
