@@ -54,7 +54,7 @@ export default class Map extends React.Component {
         // add the interactive behaviour to the map
         new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-        this.addMarkers()
+        // this.addMarkers()
 
       onResize(this.ref.current, () => {
         map.getViewPort().resize();
@@ -85,6 +85,7 @@ export default class Map extends React.Component {
       this.timeout = setTimeout(() => {
         this.map.setZoom(zoom);
         this.map.setCenter({lat, lng});
+        this.addMarkers()
       }, 100);
     }
   }

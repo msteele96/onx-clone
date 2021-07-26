@@ -25,6 +25,7 @@ export const loadUsersPins = id => {
     .then(response => {
       return response.json()
     }).then(responseJSON => {
+      // debugger
       dispatch({ type: 'ADD_PINS', pins: responseJSON.data.attributes.pins })
     })
   }

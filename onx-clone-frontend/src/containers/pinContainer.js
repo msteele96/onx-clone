@@ -3,9 +3,11 @@ import CreatePin from "../components/CreatePin";
 import Pin from "../components/Pin";
 
 export default class PinContainer extends Component {
-
+    
     componentDidMount() {
-        this.props.loadUsersPins(this.props.user.data.id)
+        if (this.props.user.data.id !== 0) {
+            this.props.loadUsersPins(this.props.user.data.id)
+        }
     }
 
     renderPins = () => {

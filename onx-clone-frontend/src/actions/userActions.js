@@ -15,11 +15,10 @@ export const setUser = (userInfo, history) => {
         return response.json()
       }).then(responseJSON => {
         dispatch({ type: 'SET_USER', user: responseJSON })
-        // console.log(responseJSON)
+      }).then(
         history.push(`/dashboard`)
-      }).catch(() => {
-        window.history.pushState("", "", "/failure")
-        window.history.go()
+      ).catch(() => {
+        history.push("/failure")
       })
     }
 }
