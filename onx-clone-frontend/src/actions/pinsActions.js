@@ -13,7 +13,6 @@ export const addPin = (pin, history) => {
     .then(response => {
       return response.json()
     }).then(responseJSON => {
-      debugger
       if (responseJSON.error === undefined) {
         dispatch({ type: 'NEW_PIN', pin: responseJSON.data.attributes })
       }

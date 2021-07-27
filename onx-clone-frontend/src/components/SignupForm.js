@@ -20,7 +20,7 @@ class SignupForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.setUser(this.state)
+        this.props.setUser(this.state, this.props.history)
         this.setState(
             {
                 username: "",
@@ -28,7 +28,6 @@ class SignupForm extends Component {
                 confirm_password: ""
             }
         )
-        this.props.history.push(`users`);
     }
 
     render() {
