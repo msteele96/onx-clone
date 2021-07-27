@@ -1,7 +1,7 @@
 class PinSerializer
   include JSONAPI::Serializer
-  attributes :style, :name, :latitude, :longitude, :notes
-  attribute :user do |object|
-    object.user.as_json
-  end
+  attributes :style, :name, :latitude, :longitude, :notes, :user_id
+  # attribute :user do |object|
+  #   object.user.as_json
+  # end
 end

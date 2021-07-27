@@ -8,7 +8,8 @@ export default class CreatePin extends Component {
             name: "",
             latitude: "",
             longitude: "",
-            notes: ""
+            notes: "",
+            userId: props.user.data.id
         }
     }
 
@@ -21,7 +22,7 @@ export default class CreatePin extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        console.log("submitted")
+        this.props.addPin(this.state)
         this.setState(
             {
                 style: "",

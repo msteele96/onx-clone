@@ -13,8 +13,9 @@ export const addPin = pin => {
     .then(response => {
       return response.json()
     }).then(responseJSON => {
-      dispatch({ type: 'ADD_PINS', pins: responseJSON })
-    })
+      debugger
+      dispatch({ type: 'ADD_PINS', pin: responseJSON })
+    }).catch(window.history.back())
   }
 }
 
@@ -25,7 +26,6 @@ export const loadUsersPins = id => {
     .then(response => {
       return response.json()
     }).then(responseJSON => {
-      // debugger
       dispatch({ type: 'ADD_PINS', pins: responseJSON.data.attributes.pins })
     })
   }

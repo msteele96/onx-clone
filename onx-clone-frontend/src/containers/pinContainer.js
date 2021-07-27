@@ -17,7 +17,7 @@ export default class PinContainer extends Component {
     render() {
         return (
             <div>
-                <CreatePin />
+                <CreatePin addPin={this.props.addPin} user={this.props.user}/>
                 <h2>Pins</h2>
                 <ul>
                     {this.renderPins()}
