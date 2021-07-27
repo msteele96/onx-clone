@@ -13,6 +13,7 @@ const pinsReducer = (state = { pins: [], loading: false }, action) => {
           loading: false
         }
       case 'NEW_PIN':
+        debugger
         return {
           ...state,
           pins: [...state.pins, action.pin],

@@ -1,6 +1,7 @@
 import { Component } from "react";
+import { withRouter } from "react-router";
 
-export default class CreatePin extends Component {
+class CreatePin extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -22,7 +23,7 @@ export default class CreatePin extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addPin(this.state)
+        this.props.addPin(this.state, this.props.history)
         this.setState(
             {
                 style: "",
@@ -61,3 +62,5 @@ export default class CreatePin extends Component {
         )
     }
 }
+
+export default withRouter(CreatePin)

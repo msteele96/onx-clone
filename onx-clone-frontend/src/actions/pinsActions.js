@@ -1,4 +1,4 @@
-export const addPin = pin => {
+export const addPin = (pin, history) => {
   return (dispatch) => {
     const configObj = {
         method: "POST",
@@ -14,8 +14,10 @@ export const addPin = pin => {
       return response.json()
     }).then(responseJSON => {
       debugger
-      dispatch({ type: 'ADD_PINS', pin: responseJSON })
-    }).catch(window.history.back())
+      if (responseJSON.error === undefined) {
+        dispatch({ type: 'NEW_PIN', pin: responseJSON.data.attributes })
+      }
+    }).finally(history.push('/dashboard'))
   }
 }
 
