@@ -11,7 +11,7 @@ export default class PinContainer extends Component {
     }
 
     renderPins = () => {
-        return this.props.pins.map(pin => Pin(pin))
+        return this.props.pins.map(pin => <Pin key={pin.id} pin={pin}/>)
     }
 
     render() {
