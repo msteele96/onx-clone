@@ -3,13 +3,7 @@ import CreatePin from "../components/CreatePin";
 import Pin from "../components/Pin";
 
 export default class PinContainer extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         pins: this.props.pins
-    //     }
-    // }
-    
+
     componentDidMount() {
         if (this.props.user.data.id !== 0) {
             this.props.loadUsersPins(this.props.user.data.id)
@@ -21,7 +15,7 @@ export default class PinContainer extends Component {
     }
 
     sortPins = () => {
-        let a = this.props.pins.sort((a, b) => {
+        let sorted = this.props.pins.sort((a, b) => {
             let fa = a.name.toLowerCase(),
                 fb = b.name.toLowerCase();
         
@@ -34,7 +28,7 @@ export default class PinContainer extends Component {
             return 0;
         });
         this.setState({
-            pins: a
+            pins: sorted
         })
     }
 

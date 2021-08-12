@@ -15,6 +15,8 @@ class App extends Component {
 
   render() {
     let key = this.props.user.user.data.id
+    // if (this.props.user.loading === true || this.props.pins.loading === true) {
+    
     return (
       <div className="App">
         <h1> OnX Clone</h1>
@@ -42,12 +44,14 @@ class App extends Component {
           <Route path="/dashboard">
             <PinContainer key={key} user={this.props.user.user} pins={this.props.pins.pins} addPin={this.props.addPin} loadUsersPins={this.props.loadUsersPins}/>
           </Route>
-          {/* needs to load the users pins and display them on map */}
+          
           <Route exact path="/failure" render={() => <><h2>Problem logging you in, try again.</h2> <Link to="/login"><h3>Log In</h3></Link> </>}/>
         </>
         </Switch>
       </div>
-    );  
+    ); 
+
+    // } 
   }
 }
 
