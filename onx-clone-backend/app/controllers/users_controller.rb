@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         if user == nil
             new_user = User.create(username: params[:username], password: params[:password], password_confirmation: params[:confirm_password])
             render json: UserSerializer.new(new_user)
-        elsif user.authenticate(params[:password])
+        elsif user.authenticate(params[:password]) != false
             render json: UserSerializer.new(user)
         end
     end
